@@ -1,5 +1,4 @@
 <script setup>
-import draggable from 'vuedraggable'
 import JsonComponents from './JsonComponents.vue';
 import Editor from "@tinymce/tinymce-vue";
 import { shortDesConfi } from '../../lib/EditorConfigs';
@@ -69,7 +68,7 @@ function openSlotMenu(e, element, parent, index) {
 }
 </script>
 <template>
-  <template v-for="(section, index) in sections" v-if="!draggable_pro">
+  <template v-for="(section, index) in sections">
     <component :is="getComponent(section.component)" v-bind="section.props" @contextmenu.stop="(e) => openContextMenu(e, section, index)">
       <template v-if="section.children">
         <JsonComponents v-model="section.children" :draggable_pro="draggable_pro"
@@ -87,35 +86,6 @@ function openSlotMenu(e, element, parent, index) {
       </template>
     </component>
   </template>
-
-  <draggable v-model="sections" :animation="200" item-key="id" @end="endofDrag" v-else>
-    <template #item="{ element, index }">
-      <div class="component-item" @contextmenu.stop="(e) => openContextMenu(e, element, index)">
-        <!-- Render your component; adjust as needed -->
-        <component :is="getComponent(element.component)" v-bind="element.props"
-          v-if="!element.hasOwnProperty('htmlContent') || element.hasOwnProperty('children') || element.hasOwnProperty('slots')">
-          <JsonComponents v-if="element.children" v-model="element.children" @updateSections="endofDrag"
-            @openEdit="e => subElementEdit(e, null, index, 'children')" :draggable="draggable_pro"></JsonComponents>
-          <Editor v-if="element.hasOwnProperty('htmlContent')" :api-key="apiKey" :init="shortDesConfi"
-            v-model="element.htmlContent" />
-          <span v-if="element.textContent" contenteditable="true"
-            @input="element.textContent = $event.target.innerText">{{ element.textContent }}</span>
-          <!--Add Slots-->
-          <template v-for="(slot, inx) in element.slots" v-slot:[slot.name]>
-            <JsonComponents v-model="slot.children" v-if="slot.children" @updateSections="endofDrag"
-              :draggable="draggable_pro" @openEdit="e => subElementEdit(e, inx, index, 'slot')"></JsonComponents>
-            <Editor v-if="slot.hasOwnProperty('htmlContent')" :api-key="apiKey" :init="shortDesConfi"
-              v-model="slot.htmlContent" />
-            <span v-if="slot.textContent" contenteditable="true" @input="slot.textContent = $event.target.innerText">{{
-              slot.textContent }}</span>
-          </template>
-        </component>
-        <component :is="getComponent(element.component)" v-bind="element.props" v-else>
-          <Editor :api-key="apiKey" :init="shortDesConfi" v-model="element.htmlContent" />
-        </component>
-      </div>
-    </template>
-  </draggable>
 </template>
 <style scoped>
 .component-item {

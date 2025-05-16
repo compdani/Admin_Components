@@ -6,8 +6,8 @@ export default defineConfig({
   build: {
     lib: {
         entry: resolve(__dirname, 'src/index.js'),
-        name: "AdminComponents",
-        fileName: (format) => `admin-components.${format}.js`
+        fileName: (format) => `admin-components.${format}.js`,
+        formats: ['es', 'cjs'] // <--- ONLY ESM and CJS
     },
     rollupOptions: {
         external: ['vue'],
