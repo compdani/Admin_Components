@@ -1,8 +1,5 @@
 <script setup>
 import JsonComponents from './JsonComponents.vue';
-import Editor from "@tinymce/tinymce-vue";
-import { shortDesConfi } from '../../lib/EditorConfigs';
-const apiKey = "74ca372jx03ojgry4czoi2g59d4pruuozmudnvfqwzs742yz";
 const sections = defineModel();
 const emit = defineEmits(['updateSections', 'openEdit']);
 const props = defineProps({
@@ -68,8 +65,7 @@ function openSlotMenu(e, element, parent, index) {
 }
 </script>
 <template>
-  <template v-for="(section, index) in sections">
-    <component :is="getComponent(section.component)" v-bind="section.props" @contextmenu.stop="(e) => openContextMenu(e, section, index)">
+    <component  v-for="(section, index) in sections" :is="getComponent(section.component)" v-bind="section.props" @contextmenu.stop="(e) => openContextMenu(e, section, index)">
       <template v-if="section.children">
         <JsonComponents v-model="section.children" :draggable_pro="draggable_pro"
           @openEdit="e => subElementEdit(e, null, index, 'children')"></JsonComponents>
@@ -85,7 +81,6 @@ function openSlotMenu(e, element, parent, index) {
           <template v-if="slot.textContent">{{ slot.textContent }}</template>
       </template>
     </component>
-  </template>
 </template>
 <style scoped>
 .component-item {

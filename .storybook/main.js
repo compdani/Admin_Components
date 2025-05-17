@@ -1,3 +1,5 @@
+
+
 /** @type { import('@storybook/vue3-vite').StorybookConfig } */
 const config = {
   "stories": [
@@ -13,11 +15,6 @@ const config = {
   "framework": {
     "name": "@storybook/vue3-vite",
     "options": {}
-  },
-  "viteFinal": async (config) => {
-    config.plugins = config.plugins || [];
-    config.plugins.push(require('@vitejs/plugin-vue')());
-    return config;
   }
 };
 export default config;

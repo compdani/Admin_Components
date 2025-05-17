@@ -152,8 +152,8 @@ function showContextMenu(e, element, path) {
             <v-col :cols="12" v-if="showJson">
                 <AceEditorWrap v-model="json" />
             </v-col>
-            <v-col v-else :cols="12" class="bordered">
-                <div class="preview-container">
+            <v-col v-else :cols="12" class="bordered fill-height">
+                <div class="preview-container fill-height">
                     <div class="preview-content" :class="{ 'has-docked-tree': showTreeViewer && isTreeDocked }">
                         <JsonComponents v-model="json" @updateSections="updateSections" :draggable_pro="draggable"
                             @openEdit="({ event, element, path }) => showContextMenu(event, element, path)">
@@ -193,7 +193,6 @@ function showContextMenu(e, element, path) {
 
 .preview-container {
     position: relative;
-    height: 100%;
     display: flex;
 }
 

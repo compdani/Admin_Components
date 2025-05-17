@@ -1,5 +1,121 @@
-import { watch as Oe, defineComponent as Le, toRefs as _e, ref as ne, nextTick as Ve, onMounted as Ye, onBeforeUnmount as Xe, onActivated as sn, onDeactivated as an, h as Ne, mergeModels as Fe, useModel as qe, createElementBlock as se, openBlock as J, Fragment as Re, renderList as Ze, createBlock as te, resolveDynamicComponent as Et, mergeProps as De, withModifiers as nt, createSlots as pt, withCtx as U, createCommentVNode as re, createTextVNode as Ie, toDisplayString as Ge, resolveComponent as ae, createVNode as ee, unref as z, inject as Ae, computed as Te, createElementVNode as pe, normalizeClass as Be, provide as We, renderSlot as ve, Transition as Vt, normalizeProps as Nt, Teleport as _t, reactive as vt, normalizeStyle as Pe, useSlots as Ot, guardReactiveProps as ln, render as bt, markRaw as cn, capitalize as un } from "vue";
-var gn = [
+import { mergeModels as Oe, useModel as qe, createElementBlock as se, openBlock as J, Fragment as Re, renderList as Ze, createBlock as te, resolveDynamicComponent as Et, mergeProps as Fe, withModifiers as nt, createSlots as pt, withCtx as U, createCommentVNode as re, createTextVNode as Ie, toDisplayString as Ge, watch as De, defineComponent as Le, toRefs as _e, ref as ne, nextTick as Ve, onMounted as Ye, onBeforeUnmount as Xe, onActivated as sn, onDeactivated as an, h as Ne, resolveComponent as ae, createVNode as ee, unref as z, inject as Ae, computed as Te, createElementVNode as pe, normalizeClass as Be, provide as We, renderSlot as ve, Transition as Vt, normalizeProps as Nt, Teleport as _t, reactive as vt, normalizeStyle as Pe, useSlots as Ot, guardReactiveProps as ln, render as bt, markRaw as cn, capitalize as un } from "vue";
+const et = (G, H) => {
+  const w = G.__vccOpts || G;
+  for (const [R, N] of H)
+    w[R] = N;
+  return w;
+}, gn = ["innerHTML"], hn = ["innerHTML", "onContextmenu"], dn = {
+  __name: "JsonComponents",
+  props: /* @__PURE__ */ Oe({
+    draggable_pro: {
+      type: Boolean,
+      default: !0
+    }
+  }, {
+    modelValue: {},
+    modelModifiers: {}
+  }),
+  emits: /* @__PURE__ */ Oe(["updateSections", "openEdit"], ["update:modelValue"]),
+  setup(G, { emit: H }) {
+    const w = qe(G, "modelValue"), R = H;
+    function N(a) {
+      const c = {};
+      return c[a] ? c[a] : a;
+    }
+    function b(a, c, n) {
+      R("openEdit", { event: a, element: c, path: [n] });
+    }
+    function S(a, c, n, r) {
+      let i = [];
+      n !== null && i.push(n), c !== null && i.push(c), r === "children" ? (i.push("children"), a.path && (i = [...i, ...a.path])) : r === "slot" && (a.path ? (i.push("slots", c, "children"), i = [...i, ...a.path]) : i.push("slots", c)), R("openEdit", {
+        event: a.event,
+        element: a.element,
+        path: i
+      });
+    }
+    function A(a, c, n, r) {
+      R("openEdit", { event: a, element: c.slots[r], path: [n, "slots", r] });
+    }
+    return (a, c) => (J(!0), se(Re, null, Ze(w.value, (n, r) => (J(), te(Et(N(n.component)), Fe({ ref_for: !0 }, n.props, {
+      onContextmenu: nt((i) => b(i, n, r), ["stop"])
+    }), pt({
+      default: U(() => [
+        n.children ? (J(), te(dt, {
+          key: 0,
+          modelValue: n.children,
+          "onUpdate:modelValue": (i) => n.children = i,
+          draggable_pro: G.draggable_pro,
+          onOpenEdit: (i) => S(i, null, r, "children")
+        }, null, 8, ["modelValue", "onUpdate:modelValue", "draggable_pro", "onOpenEdit"])) : re("", !0),
+        n.htmlContent ? (J(), se("div", {
+          key: 1,
+          innerHTML: n.htmlContent
+        }, null, 8, gn)) : re("", !0),
+        n.textContent ? (J(), se(Re, { key: 2 }, [
+          Ie(Ge(n.textContent), 1)
+        ], 64)) : re("", !0)
+      ]),
+      _: 2
+    }, [
+      Ze(n.slots, (i, t) => ({
+        name: i.name,
+        fn: U(() => [
+          i.children ? (J(), te(dt, {
+            key: 0,
+            modelValue: i.children,
+            "onUpdate:modelValue": (e) => i.children = e,
+            draggable_pro: G.draggable_pro,
+            onOpenEdit: (e) => S(e, t, r, "slot")
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "draggable_pro", "onOpenEdit"])) : re("", !0),
+          i.htmlContent ? (J(), se("div", {
+            key: 1,
+            innerHTML: i.htmlContent,
+            onContextmenu: nt((e) => A(e, n, r, t), ["stop"])
+          }, null, 40, hn)) : re("", !0),
+          i.textContent ? (J(), se(Re, { key: 2 }, [
+            Ie(Ge(i.textContent), 1)
+          ], 64)) : re("", !0)
+        ])
+      }))
+    ]), 1040, ["onContextmenu"]))), 256));
+  }
+}, dt = /* @__PURE__ */ et(dn, [["__scopeId", "data-v-e879fa16"]]), fn = {
+  content_css: [
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+  ],
+  height: "60vh",
+  plugins: "code preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help",
+  toolbar: "formatselect | bold italic forecolor backcolor | code | link image media | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent",
+  toolbar_drawer: "floating",
+  valid_elements: "*[*]",
+  image_advtab: !0,
+  license_key: "74ca372jx03ojgry4czoi2g59d4pruuozmudnvfqwzs742yz"
+}, pn = [
+  "div",
+  "p",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "v-divider",
+  "v-list-item",
+  "v-list-item-group",
+  "v-list",
+  "v-card",
+  "v-card-title",
+  "v-card-subtitle",
+  "v-card-text",
+  "v-card-actions",
+  "v-btn",
+  "iframe",
+  "v-img",
+  "v-col",
+  "v-row",
+  "v-container"
+];
+var Cn = [
   "onActivate",
   "onAddUndo",
   "onBeforeAddUndo",
@@ -67,36 +183,36 @@ var gn = [
   "onSubmit",
   "onUndo",
   "onVisualAid"
-], hn = function(G) {
-  return gn.map(function(H) {
+], mn = function(G) {
+  return Cn.map(function(H) {
     return H.toLowerCase();
   }).indexOf(G.toLowerCase()) !== -1;
-}, dn = function(G, H, w) {
-  Object.keys(H).filter(hn).forEach(function(R) {
+}, In = function(G, H, w) {
+  Object.keys(H).filter(mn).forEach(function(R) {
     var N = H[R];
     typeof N == "function" && (R === "onInit" ? N(G, w) : w.on(R.substring(2), function(b) {
       return N(b, w);
     }));
   });
-}, fn = function(G, H, w, R) {
+}, An = function(G, H, w, R) {
   var N = G.modelEvents ? G.modelEvents : null, b = Array.isArray(N) ? N.join(" ") : N;
-  Oe(R, function(S, A) {
+  De(R, function(S, A) {
     w && typeof S == "string" && S !== A && S !== w.getContent({ format: G.outputFormat }) && w.setContent(S);
   }), w.on(b || "change input undo redo", function() {
     H.emit("update:modelValue", w.getContent({ format: G.outputFormat }));
   });
-}, pn = function(G, H, w, R, N, b) {
-  R.setContent(b()), w.attrs["onUpdate:modelValue"] && fn(H, w, R, N), dn(G, w.attrs, R);
+}, vn = function(G, H, w, R, N, b) {
+  R.setContent(b()), w.attrs["onUpdate:modelValue"] && An(H, w, R, N), In(G, w.attrs, R);
 }, yt = 0, Ft = function(G) {
   var H = Date.now(), w = Math.floor(Math.random() * 1e9);
   return yt++, G + "_" + w + yt + String(H);
-}, Cn = function(G) {
+}, bn = function(G) {
   return G !== null && G.tagName.toLowerCase() === "textarea";
 }, wt = function(G) {
   return typeof G > "u" || G === "" ? [] : Array.isArray(G) ? G : G.split(" ");
-}, mn = function(G, H) {
+}, yn = function(G, H) {
   return wt(G).concat(wt(H));
-}, In = function(G) {
+}, wn = function(G) {
   return G == null;
 }, St = function() {
   return {
@@ -104,7 +220,7 @@ var gn = [
     scriptId: Ft("tiny-script"),
     scriptLoaded: !1
   };
-}, An = function() {
+}, Sn = function() {
   var G = St(), H = function(N, b, S, A) {
     var a = b.createElement("script");
     a.referrerPolicy = "origin", a.type = "application/javascript", a.id = N, a.src = S;
@@ -125,12 +241,12 @@ var gn = [
     load: w,
     reinitialize: R
   };
-}, vn = An(), bn = function() {
+}, Rn = Sn(), kn = function() {
   return typeof window < "u" ? window : global;
 }, Ee = function() {
-  var G = bn();
+  var G = kn();
   return G && G.tinymce ? G.tinymce : null;
-}, yn = {
+}, xn = {
   apiKey: String,
   licenseKey: String,
   cloudChannel: String,
@@ -159,19 +275,19 @@ var gn = [
     }
     return G;
   }, Me.apply(this, arguments);
-}, wn = function(G, H, w, R) {
+}, Wn = function(G, H, w, R) {
   return G(R || "div", {
     id: H,
     ref: w
   });
-}, Sn = function(G, H, w) {
+}, Mn = function(G, H, w) {
   return G("textarea", {
     id: H,
     visibility: "hidden",
     ref: w
   });
-}, ct = { selector: void 0, target: void 0 }, Rn = Le({
-  props: yn,
+}, ct = { selector: void 0, target: void 0 }, Ln = Le({
+  props: xn,
   setup: function(G, H) {
     var w = G.init ? Me(Me({}, G.init), ct) : Me({}, ct), R = _e(G), N = R.disabled, b = R.modelValue, S = R.tagName, A = ne(null), a = null, c = G.id || Ft("tiny-vue"), n = G.init && G.init.inline || G.inline, r = !!H.attrs["onUpdate:modelValue"], i = !0, t = G.initialValue ? G.initialValue : "", e = "", o = function(u) {
       return r ? function() {
@@ -180,17 +296,17 @@ var gn = [
         return u ? t : e;
       };
     }, s = function() {
-      var u = o(i), C = Me(Me({}, w), { readonly: G.disabled, target: A.value, plugins: mn(w.plugins, G.plugins), toolbar: G.toolbar || w.toolbar, inline: n, license_key: G.licenseKey, setup: function(p) {
+      var u = o(i), C = Me(Me({}, w), { readonly: G.disabled, target: A.value, plugins: yn(w.plugins, G.plugins), toolbar: G.toolbar || w.toolbar, inline: n, license_key: G.licenseKey, setup: function(p) {
         a = p, p.on("init", function(f) {
-          return pn(f, G, H, p, b, u);
+          return vn(f, G, H, p, b, u);
         }), typeof w.setup == "function" && w.setup(p);
       } });
-      Cn(A.value) && (A.value.style.visibility = ""), Ee().init(C), i = !1;
+      bn(A.value) && (A.value.style.visibility = ""), Ee().init(C), i = !1;
     };
-    Oe(N, function(u) {
+    De(N, function(u) {
       var C;
       a !== null && (typeof ((C = a.mode) === null || C === void 0 ? void 0 : C.set) == "function" ? a.mode.set(u ? "readonly" : "design") : a.setMode(u ? "readonly" : "design"));
-    }), Oe(S, function(u) {
+    }), De(S, function(u) {
       var C;
       r || (e = a.getContent()), (C = Ee()) === null || C === void 0 || C.remove(a), Ve(function() {
         return s();
@@ -199,8 +315,8 @@ var gn = [
       if (Ee() !== null)
         s();
       else if (A.value && A.value.ownerDocument) {
-        var u = G.cloudChannel ? G.cloudChannel : "7", C = G.apiKey ? G.apiKey : "no-api-key", p = In(G.tinymceScriptSrc) ? "https://cdn.tiny.cloud/1/".concat(C, "/tinymce/").concat(u, "/tinymce.min.js") : G.tinymceScriptSrc;
-        vn.load(A.value.ownerDocument, p, s);
+        var u = G.cloudChannel ? G.cloudChannel : "7", C = G.apiKey ? G.apiKey : "no-api-key", p = wn(G.tinymceScriptSrc) ? "https://cdn.tiny.cloud/1/".concat(C, "/tinymce/").concat(u, "/tinymce.min.js") : G.tinymceScriptSrc;
+        Rn.load(A.value.ownerDocument, p, s);
       }
     }), Xe(function() {
       Ee() !== null && Ee().remove(a);
@@ -222,128 +338,13 @@ var gn = [
         return a;
       }
     }), function() {
-      return n ? wn(Ne, c, A, G.tagName) : Sn(Ne, c, A);
+      return n ? Wn(Ne, c, A, G.tagName) : Mn(Ne, c, A);
     };
   }
 });
-const kn = {
-  content_css: [
-    "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-  ],
-  height: "60vh",
-  plugins: "code preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help",
-  toolbar: "formatselect | bold italic forecolor backcolor | code | link image media | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent",
-  toolbar_drawer: "floating",
-  valid_elements: "*[*]",
-  image_advtab: !0,
-  license_key: "74ca372jx03ojgry4czoi2g59d4pruuozmudnvfqwzs742yz"
-}, xn = [
-  "div",
-  "p",
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "v-divider",
-  "v-list-item",
-  "v-list-item-group",
-  "v-list",
-  "v-card",
-  "v-card-title",
-  "v-card-subtitle",
-  "v-card-text",
-  "v-card-actions",
-  "v-btn",
-  "iframe",
-  "v-img",
-  "v-col",
-  "v-row",
-  "v-container"
-], et = (G, H) => {
-  const w = G.__vccOpts || G;
-  for (const [R, N] of H)
-    w[R] = N;
-  return w;
-}, Wn = ["innerHTML"], Mn = ["innerHTML", "onContextmenu"], Ln = {
-  __name: "JsonComponents",
-  props: /* @__PURE__ */ Fe({
-    draggable_pro: {
-      type: Boolean,
-      default: !0
-    }
-  }, {
-    modelValue: {},
-    modelModifiers: {}
-  }),
-  emits: /* @__PURE__ */ Fe(["updateSections", "openEdit"], ["update:modelValue"]),
-  setup(G, { emit: H }) {
-    const w = qe(G, "modelValue"), R = H;
-    function N(a) {
-      const c = {};
-      return c[a] ? c[a] : a;
-    }
-    function b(a, c, n) {
-      R("openEdit", { event: a, element: c, path: [n] });
-    }
-    function S(a, c, n, r) {
-      let i = [];
-      n !== null && i.push(n), c !== null && i.push(c), r === "children" ? (i.push("children"), a.path && (i = [...i, ...a.path])) : r === "slot" && (a.path ? (i.push("slots", c, "children"), i = [...i, ...a.path]) : i.push("slots", c)), R("openEdit", {
-        event: a.event,
-        element: a.element,
-        path: i
-      });
-    }
-    function A(a, c, n, r) {
-      R("openEdit", { event: a, element: c.slots[r], path: [n, "slots", r] });
-    }
-    return (a, c) => (J(!0), se(Re, null, Ze(w.value, (n, r) => (J(), te(Et(N(n.component)), De({ ref_for: !0 }, n.props, {
-      onContextmenu: nt((i) => b(i, n, r), ["stop"])
-    }), pt({
-      default: U(() => [
-        n.children ? (J(), te(dt, {
-          key: 0,
-          modelValue: n.children,
-          "onUpdate:modelValue": (i) => n.children = i,
-          draggable_pro: G.draggable_pro,
-          onOpenEdit: (i) => S(i, null, r, "children")
-        }, null, 8, ["modelValue", "onUpdate:modelValue", "draggable_pro", "onOpenEdit"])) : re("", !0),
-        n.htmlContent ? (J(), se("div", {
-          key: 1,
-          innerHTML: n.htmlContent
-        }, null, 8, Wn)) : re("", !0),
-        n.textContent ? (J(), se(Re, { key: 2 }, [
-          Ie(Ge(n.textContent), 1)
-        ], 64)) : re("", !0)
-      ]),
-      _: 2
-    }, [
-      Ze(n.slots, (i, t) => ({
-        name: i.name,
-        fn: U(() => [
-          i.children ? (J(), te(dt, {
-            key: 0,
-            modelValue: i.children,
-            "onUpdate:modelValue": (e) => i.children = e,
-            draggable_pro: G.draggable_pro,
-            onOpenEdit: (e) => S(e, t, r, "slot")
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "draggable_pro", "onOpenEdit"])) : re("", !0),
-          i.htmlContent ? (J(), se("div", {
-            key: 1,
-            innerHTML: i.htmlContent,
-            onContextmenu: nt((e) => A(e, n, r, t), ["stop"])
-          }, null, 40, Mn)) : re("", !0),
-          i.textContent ? (J(), se(Re, { key: 2 }, [
-            Ie(Ge(i.textContent), 1)
-          ], 64)) : re("", !0)
-        ])
-      }))
-    ]), 1040, ["onContextmenu"]))), 256));
-  }
-}, dt = /* @__PURE__ */ et(Ln, [["__scopeId", "data-v-e627c4d7"]]), $n = "74ca372jx03ojgry4czoi2g59d4pruuozmudnvfqwzs742yz", Gn = {
+const $n = "74ca372jx03ojgry4czoi2g59d4pruuozmudnvfqwzs742yz", Gn = {
   __name: "GeneralComponentEditing",
-  props: /* @__PURE__ */ Fe({
+  props: /* @__PURE__ */ Oe({
     is_component: {
       type: Boolean,
       default: !0
@@ -465,11 +466,11 @@ const kn = {
             }, 1032, ["modelValue", "onUpdate:modelValue", "label"]))
           ], 64);
         }), 128)),
-        H.value.hasOwnProperty("htmlContent") ? (J(), te(z(Rn), {
+        H.value.hasOwnProperty("htmlContent") ? (J(), te(z(Ln), {
           key: 2,
           modelValue: H.value.htmlContent,
           "onUpdate:modelValue": b[2] || (b[2] = (i) => H.value.htmlContent = i),
-          init: z(kn),
+          init: z(fn),
           "api-key": $n
         }, null, 8, ["modelValue", "init"])) : re("", !0),
         H.value.hasOwnProperty("textContent") ? (J(), te(n, {
@@ -560,7 +561,7 @@ const kn = {
   }
 }, Bn = /* @__PURE__ */ et(Gn, [["__scopeId", "data-v-aa3cbf01"]]), Zn = {
   __name: "ComponentElementEdit",
-  props: /* @__PURE__ */ Fe({
+  props: /* @__PURE__ */ Oe({
     data: {
       type: Object,
       required: !0
@@ -569,10 +570,10 @@ const kn = {
     dialog: {},
     dialogModifiers: {}
   }),
-  emits: /* @__PURE__ */ Fe(["dataSaved"], ["update:dialog"]),
+  emits: /* @__PURE__ */ Oe(["dataSaved"], ["update:dialog"]),
   setup(G, { emit: H }) {
     const w = G, R = ne(w.data), N = qe(G, "dialog"), b = ne("");
-    Oe(N, (A) => {
+    De(N, (A) => {
       var a;
       A && w.data.hasOwnProperty("component") ? (b.value = (a = w.data) == null ? void 0 : a.component, R.value = JSON.parse(JSON.stringify(w.data))) : A && w.data.hasOwnProperty("name") && (b.value = "slot", R.value = JSON.parse(JSON.stringify(w.data)));
     });
@@ -1515,7 +1516,7 @@ const hi = /* @__PURE__ */ Ct(ai, [["render", gi]]), di = { class: "mx-item-row"
                 z(p)("itemIconRender") ? (J(), te(z(xe), {
                   key: 0,
                   vnode: () => z(f)("itemIconRender", y())
-                }, null, 8, ["vnode"])) : typeof G.svgIcon == "string" && G.svgIcon ? (J(), se("svg", De({
+                }, null, 8, ["vnode"])) : typeof G.svgIcon == "string" && G.svgIcon ? (J(), se("svg", Fe({
                   key: 1,
                   class: "icon svg"
                 }, G.svgProps), [
@@ -1566,7 +1567,7 @@ const hi = /* @__PURE__ */ Ct(ai, [["render", gi]]), di = { class: "mx-item-row"
           ])
         ])
       ], 34)),
-      z(C).menuTransitionProps ? (J(), te(Vt, Nt(De({ key: 3 }, z(C).menuTransitionProps)), {
+      z(C).menuTransitionProps ? (J(), te(Vt, Nt(Fe({ key: 3 }, z(C).menuTransitionProps)), {
         default: U(() => [
           s.value ? ve(I.$slots, "submenu", {
             key: 0,
@@ -1841,7 +1842,7 @@ const Qe = /* @__PURE__ */ Ct(Ii, [["render", vi]]), it = /* @__PURE__ */ Le({
         key: 0,
         to: `#${z(N)}`
       }, [
-        pe("div", De({
+        pe("div", Fe({
           ref_key: "submenuRoot",
           ref: t
         }, L.$attrs, {
@@ -1975,7 +1976,7 @@ const Qe = /* @__PURE__ */ Ct(Ii, [["render", vi]]), it = /* @__PURE__ */ Le({
       a.value && i();
     }), Xe(() => {
       s();
-    }), Oe(a, (g) => {
+    }), De(a, (g) => {
       g ? i() : (Rt(n), s());
     });
     const n = {
@@ -2085,7 +2086,7 @@ const Qe = /* @__PURE__ */ Ct(Ii, [["render", vi]]), it = /* @__PURE__ */ Le({
       },
       isOpenedByKeyBoardFlag: () => !1,
       isMenuItemDataCollectedFlag: () => !1
-    }), H(n), (g, v) => z(A).menuTransitionProps ? (J(), te(Vt, De({
+    }), H(n), (g, v) => z(A).menuTransitionProps ? (J(), te(Vt, Fe({
       key: 0,
       appear: ""
     }, z(A).menuTransitionProps, {
@@ -2459,7 +2460,7 @@ const jt = {
     data: {},
     dataModifiers: {}
   },
-  emits: /* @__PURE__ */ Fe(["openEdit", "close", "update:docked"], ["update:data"]),
+  emits: /* @__PURE__ */ Oe(["openEdit", "close", "update:docked"], ["update:data"]),
   setup(G, { emit: H }) {
     const w = qe(G, "data"), { removeElement: R, pasteElement: N, insertElement: b } = Kt(w), S = H, A = Ae("componentClipboard"), a = ne([]);
     function c() {
@@ -16531,7 +16532,7 @@ const eo = /* @__PURE__ */ Ut(qi), to = {
   setup(G, { emit: H }) {
     ace.config.setModuleUrl("ace/theme/chrome", ji), ace.config.setModuleUrl("ace/mode/json_worker", Ui), ace.config.setModuleUrl("ace/mode/json", eo);
     const w = G, R = H, N = ne("");
-    return Oe(N, (b) => {
+    return De(N, (b) => {
       try {
         R("update:modelValue", JSON.parse(b));
       } catch (S) {
@@ -16547,7 +16548,7 @@ const eo = /* @__PURE__ */ Ut(qi), to = {
       style: { height: "600px" }
     }, null, 8, ["value"]));
   }
-}, no = { id: "content-editor" }, io = { class: "preview-container" }, oo = {
+}, no = { id: "content-editor" }, io = { class: "preview-container fill-height" }, oo = {
   __name: "ComponentEditor",
   props: {
     modelValue: { default: [] },
@@ -16663,7 +16664,7 @@ const eo = /* @__PURE__ */ Ut(qi), to = {
             ee(M),
             ee(y, null, {
               activator: U(({ props: V }) => [
-                ee(v, De(V, { icon: "fa-solid fa-clipboard" }), null, 16)
+                ee(v, Fe(V, { icon: "fa-solid fa-clipboard" }), null, 16)
               ]),
               default: U(() => [
                 ee(Z, null, {
@@ -16707,7 +16708,7 @@ const eo = /* @__PURE__ */ Ut(qi), to = {
             })) : (J(), te(d, {
               key: 1,
               cols: 12,
-              class: "bordered"
+              class: "bordered fill-height"
             }, {
               default: U(() => [
                 pe("div", io, [
@@ -16755,7 +16756,7 @@ const eo = /* @__PURE__ */ Ut(qi), to = {
                 ee($, null, {
                   default: U(() => [
                     ee(x, {
-                      items: z(xn),
+                      items: z(pn),
                       modelValue: n.value,
                       "onUpdate:modelValue": g[10] || (g[10] = (V) => n.value = V),
                       label: "Component Name"
