@@ -2,7 +2,7 @@
   "name": "admin-components",
   "version": "1.0.0",
   "files": [
-    "dist"
+    "dist/"
   ],
   "main": "./dist/admin-components.umd.js",
   "module": "./dist/admin-components.es.js",
