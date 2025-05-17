@@ -34,7 +34,8 @@
     "simple-code-editor": "^2.0.9",
     "vue-tsc": "^2.2.10",
     "vue3-ace-editor": "^2.2.4",
-    "vuetify": "^3.8.5"
+    "vuetify": "^3.8.5",
+    "webp-converter-browser": "^1.0.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.6",

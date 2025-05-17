@@ -8,8 +8,6 @@ const pinia = createPinia();
 setup(app => {
   app.use(pinia);
   app.use(vuetify);
-  app.provide('componentClipboard', useComponentClipboard());
-
 });
 
 const preview = {

@@ -31,6 +31,7 @@ export default defineConfig(({ command }) => {
         rollupOptions: {
           external: ['vue', 'ace-builds'],
           output: {
+            exports: 'named',
             globals: {
               vue: 'Vue',
               'ace-builds': 'ace'

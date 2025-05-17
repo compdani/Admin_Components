@@ -1,6 +1,6 @@
 import ComponentEditor from "./ComponentEditor.vue";
 import { ref } from "vue";
-
+import { useComponentClipboard } from "../../.storybook/provides/componentClipboard.js";
 export default {
   title: "Components/ComponentEditor",
   component: ComponentEditor,
@@ -20,6 +20,9 @@ const Template = (args) => ({
     return { modelValue };
   },
   template: '<ComponentEditor v-model="modelValue" />',
+  provide: {
+    componentClipboard: useComponentClipboard(),
+  },
 });
 
 // Basic story with empty components array
