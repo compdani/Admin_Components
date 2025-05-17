@@ -8,7 +8,15 @@ const __dirname = dirname(__filename);
 
 export default defineConfig(({ command }) => {
   const baseConfig = {
-    plugins: [vue()]
+    plugins: [vue()],
+    optimizeDeps: {
+      include: ['ace-builds']
+    },
+    build: {
+      commonjsOptions: {
+        include: [/ace-builds/, /node_modules/]
+      }
+    }
   };
 
   if (command === 'build') {
@@ -21,10 +29,11 @@ export default defineConfig(({ command }) => {
           formats: ['es', 'cjs']
         },
         rollupOptions: {
-          external: ['vue'],
+          external: ['vue', 'ace-builds'],
           output: {
             globals: {
-              vue: 'Vue'
+              vue: 'Vue',
+              'ace-builds': 'ace'
             }
           }
         }

@@ -13,19 +13,18 @@ const tempJson = ref('');
 const editor = shallowRef(null);
 const isEditorReady = ref(false);
 
-onMounted(async () => {
+onMounted(() => {
     try {
-        // Load Ace editor from CDN
+        // Load Ace editor script
         const script = document.createElement('script');
         script.src = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.0/ace.js';
         script.async = true;
         
         script.onload = () => {
-            // Load required Ace modules
-            const ace = window.ace;
-            ace.require('ace/mode/json');
-            ace.require('ace/theme/chrome');
-            ace.require('ace/worker/json');
+            // Initialize Ace editor
+            window.ace.require('ace/mode/json');
+            window.ace.require('ace/theme/chrome');
+            window.ace.require('ace/worker/json');
             
             // Initialize the editor value
             tempJson.value = JSON.stringify(props.modelValue, null, 2);
