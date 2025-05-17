@@ -1,14 +1,10 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue';
 import { VAceEditor } from 'vue3-ace-editor';
-import ace from 'ace-builds';
-import themeChromeUrl from 'ace-builds/src-noconflict/theme-chrome?url';
-import workerjsonurl from 'ace-builds/src-noconflict/worker-json?url';
-import modeJsonUrl from 'ace-builds/src-noconflict/mode-json';
-
-ace.config.setModuleUrl('ace/theme/chrome', themeChromeUrl);
-ace.config.setModuleUrl('ace/mode/json_worker', workerjsonurl);
-ace.config.setModuleUrl('ace/mode/json', modeJsonUrl);
+import 'ace-builds';
+import 'ace-builds/src-noconflict/mode-json';
+import 'ace-builds/src-noconflict/theme-chrome';
+import 'ace-builds/src-noconflict/worker-json';
 
 const props = defineProps({
     modelValue: {
@@ -37,5 +33,10 @@ onMounted(() => {
         lang="json" 
         theme="chrome" 
         style="height: 600px"
+        :options="{
+            useWorker: true,
+            showPrintMargin: false,
+            fontSize: 14
+        }"
     />
 </template>
